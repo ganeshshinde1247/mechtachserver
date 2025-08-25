@@ -1,0 +1,53 @@
+# cURL command for testing VALIDATE_USER_LOGIN_DETAILS API
+curl --location 'http://localhost:8080/api/user/validateUserLoginDetails' \
+--header 'Content-Type: application/json' \
+--data '{
+    "username": "testuser",
+    "password": "testpassword"
+}'
+
+# Expected successful response format:
+# {
+#   "data": {
+#     "appCode": 0,
+#     "userId": "testuser",
+#     "subscriberCode": 0,
+#     "subscriberId": "",
+#     "sProgramOwnCode": 0,
+#     "mobileNo": "1234567890",
+#     "subscriberExpiryDate": "2024-12-31",
+#     "roleCode": 0,
+#     "roleName": "User",
+#     "locationCode": 0,
+#     "locationName": "",
+#     "moduleExpiryDate": null,
+#     "firmName": "Default Firm"
+#   },
+#   "result": {
+#     "statusCode": 200,
+#     "message": "",
+#     "operationStatus": "Success",
+#     "errorCode": ""
+#   }
+# }
+
+# Expected error response format:
+# {
+#   "data": "",
+#   "result": {
+#     "statusCode": 200,
+#     "message": "Invalid username or password",
+#     "operationStatus": "Error",
+#     "errorCode": ""
+#   }
+# }
+
+# Postman collection details:
+# Method: POST
+# URL: http://localhost:8080/api/user/validateUserLoginDetails
+# Headers: Content-Type: application/json
+# Body (raw JSON):
+# {
+#   "username": "your_username",
+#   "password": "your_password"
+# }
